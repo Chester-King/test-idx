@@ -12,6 +12,7 @@ import { PublicKey } from '@solana/web3.js';
 
 export async function handleU64Event(params : U64Event) {
 	//TODO: Implement
+	console.log("HANDLEU64EVENT REACHED !!!!!!!!!")
 	console.log(params.data);
 	let norment =  await NormalEntity.load(params.data.toNumber());
 	if (norment == null) {
