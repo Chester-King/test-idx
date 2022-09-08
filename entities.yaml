@@ -2,28 +2,28 @@ entities:
   - name: NormalEntity
     params:
       - name: Uid
-        type: u64
+        type: number
         primary: true
       - name: svalue
         type: string
         primary: false
       - name: u8value
-        type: u8
+        type: number
         primary: false
       - name: keyvalue
-        type: publicKey
+        type: string
         primary: false
   - name: AdvanceEntity
     params:
       - name: Uid
-        type: u64
+        type: number
         primary: true
       - name: svalue
         type: string
         primary: false
       - name: u8value
-        type: u8
+        type: number
         primary: false
       - name: keyvalue
-        type: publicKey
+        type: string
         primary: false

@@ -7,6 +7,9 @@ import {
 	AdvanceEntity
 } from '../generated/Interfaces';
 
+import { BN } from '@project-serum/anchor';
+import { PublicKey } from '@solana/web3.js';
+
 export async function handleU64Event(params : U64Event) {
 	//TODO: Implement
 	let norment =  await NormalEntity.load(params.data);
@@ -54,14 +57,14 @@ export async function handlePubkeyEvent(params : PubkeyEvent) {
 		norment = new NormalEntity();
 		norment.Uid = params.id;
 	}
-	norment.keyvalue = params.data;
+	norment.keyvalue = params.data.toBase58();
 
 	let advment =  await AdvanceEntity.load(params.id);
 	if (advment == null) {
 		advment = new AdvanceEntity();
 		advment.Uid = params.id;
 	}
-	advment.keyvalue = params.data;
+	advment.keyvalue = params.data.toBase58();
 	await norment.save();
 	await advment.save();
 }
